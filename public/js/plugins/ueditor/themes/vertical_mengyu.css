@@ -1,0 +1,29 @@
+/*可以在这里添加你自己的css*/
+/*蒙语标题字体*/
+@font-face {
+    font-family: 'shmn_regular';
+    src: url('menksoft_v_regular.woff2') format('woff2'),
+    url('menksoft_v_regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'mgq';
+    src: url('MenkGarqag.woff');
+url('MenkGarqag.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: '微软雅黑',"Consolas",'mgq', "Monaco", "Bitstream Vera Sans Mono", "Courier New",  'Courier', 'monospace';
+    -moz-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    -webkit-writing-mode: vertical-lr;
+    -o-writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
+    writing-mode: tb-lr;
+    -webkit-text-orientation: sideways-right;
+}

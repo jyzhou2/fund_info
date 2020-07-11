@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+    background-color: transparent;
+}
+body,p{
+    padding: 0;
+    margin: 0;
+}
+.content{
+    color: #385863;
+    font-size: 14px;
+    width: 100%;
+    background-color: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.detail_con{
+    line-height: 1.8;
+    text-align: justify;
+    padding: 15px 5%;
+}
+.detail_con img{
+    max-width: 100%;
+}
+img{
+    display: block;
+    width: 100%;
+}
