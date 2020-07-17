@@ -45,7 +45,7 @@ Route::group($route_group, function () {
 	}
 	closedir($dh);
 
-	Route::get('/', 'HomeController@index');
+	Route::get('/fund_list', 'FundController@getCorrectFund');
 
 	// 需要登录验证的路由
 	Route::group([
