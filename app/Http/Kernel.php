@@ -23,6 +23,7 @@ class Kernel extends HttpKernel
 		\App\Http\Middleware\BeforeMiddleware::class,
 		// 通用后置中间件
 		\App\Http\Middleware\AfterMiddleware::class,
+		\App\Http\Middleware\csrfmiddler::class,
 	];
 
 	/**
