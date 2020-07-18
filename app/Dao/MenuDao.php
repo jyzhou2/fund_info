@@ -97,6 +97,7 @@ class MenuDao extends BaseMdl
 			[
 				'text' => '文章管理',
 				'priv' => 'article',
+                'icon'=>'pie-chart',
 				'order_num' => 12,
 				'nodes' => [
 					[
