@@ -53,6 +53,12 @@ class FundController extends Controller
             $jjdms = $raw_jjdms;
         }
         $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('one_week_level')->get();
+        foreach ($info as $k=>$item){
+            $info[$k]->one_week_level = round($info[$k]->one_week_level,2);
+            $info[$k]->one_month_level = round($info[$k]->one_month_level,2);
+            $info[$k]->three_months_level = round($info[$k]->three_months_level,2);
+            $info[$k]->six_months_level = round($info[$k]->six_months_level,2);
+        }
         return response_json(1,$info);
     }
 
