@@ -16,7 +16,6 @@
 @section('body')
     <div id="wrapper">
         <div id="header" class="row content-tabs">
-            <img src="{{get_file_url($system_logo)}}" id="logo-img"/>
             <div class="title">{{ $system_name .' '. $system_version }}</div>
             <div class="roll-nav" onclick="jQuery('iframe:visible').get(0).contentWindow.location.reload();">
                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><span class="fresh">刷新</span>
