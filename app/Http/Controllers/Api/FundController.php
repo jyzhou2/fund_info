@@ -29,7 +29,7 @@ class FundController extends Controller
     {
         $themes = request('theme');
         if (!is_array($themes)) {
-            $themes = [$themes];
+            $themes = explode(',',$themes);
         }
         $guimo = request('guimo');
         $raw_jjdms = JiJinGusuan::select('jjdm')->get()->pluck('jjdm')->all();
