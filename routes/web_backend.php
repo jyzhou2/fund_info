@@ -111,6 +111,7 @@ Route::group([
 	// 文件管理
 	include_once 'web_b_file.php';
 	// 文章管理
-	include_once 'web_b_article.php';*/
+	*/
+	include_once 'web_b_article.php';
 
 });

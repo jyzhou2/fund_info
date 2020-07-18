@@ -93,7 +93,7 @@ class MenuDao extends BaseMdl
                 'url' => route('admin.info.index'),
 
 			],
-            /*
+
 			[
 				'text' => '文章管理',
 				'priv' => 'article',
@@ -118,7 +118,7 @@ class MenuDao extends BaseMdl
 						'order_num' => 10,
 					]
 				]
-			]*/
+			]
 		];
 
 		//功能模块配置加载
