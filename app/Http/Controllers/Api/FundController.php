@@ -40,6 +40,9 @@ class FundController extends Controller
                 $jjdms = array_merge($jjdms, $cur_jjdm);
             }
         }
+        if(empty($themes) && empty($guimo)){
+            return response_json(1,[]);
+        }
         // 获得基金列表
         if ($guimo) {
             if($jjdms){
