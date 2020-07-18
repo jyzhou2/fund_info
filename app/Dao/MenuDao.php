@@ -88,7 +88,7 @@ class MenuDao extends BaseMdl
 			],
 			[
 				'text' => '信息管理',
-				'priv' => 'file',
+				'priv' => 'glyphicon glyphicon-usd',
 				'order_num' => 11,
                 'url' => route('admin.info.index'),
 
@@ -97,7 +97,7 @@ class MenuDao extends BaseMdl
 			[
 				'text' => '文章管理',
 				'priv' => 'article',
-                'icon'=>'pie-chart',
+                'icon'=>'glyphicon glyphicon-tasks',
 				'order_num' => 12,
 				'nodes' => [
 					[
