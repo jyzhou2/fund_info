@@ -49,7 +49,7 @@ class FundController extends Controller
         if(empty($jjdms)){
             $jjdms = $raw_jjdms;
         }
-        $info = JiJinGusuan::whereIn('jjdm',$jjdms)->orderBy('one_week_level')->get();
+        $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')->whereIn('jjdm',$jjdms)->orderBy('one_week_level')->get();
         return response_json(1,$info);
     }
 
