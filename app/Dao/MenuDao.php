@@ -87,8 +87,9 @@ class MenuDao extends BaseMdl
 				]
 			],
 			[
-				'text' => '信息管理',
-				'priv' => 'glyphicon glyphicon-usd',
+				'text' => '基金信息管理',
+				'priv' => 'info',
+				'icon' => 'glyphicon glyphicon-usd',
 				'order_num' => 11,
                 'url' => route('admin.info.index'),
 
