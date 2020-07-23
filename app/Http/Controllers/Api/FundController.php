@@ -52,7 +52,8 @@ class FundController extends Controller
         if(empty($jjdms)){
             $jjdms = $raw_jjdms;
         }
-        $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('recommand','desc')->get();
+        $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')
+            ->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('recommand','desc')->get();
         foreach ($info as $k=>$item){
             $info[$k]->one_week_level = round($info[$k]->one_week_level,2);
             $info[$k]->one_month_level = round($info[$k]->one_month_level,2);
