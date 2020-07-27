@@ -67,7 +67,7 @@ class FundController extends Controller
      * 获得基金主题列表
      */
     public function getThemeList(){
-        $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
+        $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->limit(100)->get()->pluck('name')->all();
         $res = [];
         foreach($name_list as $name){
             $res[] =['title'=> $name];
