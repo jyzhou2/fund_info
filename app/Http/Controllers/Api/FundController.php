@@ -68,7 +68,11 @@ class FundController extends Controller
      */
     public function getThemeList(){
         $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
-        return response_json(1, $name_list);
+        $res = [];
+        foreach($name_list as $name){
+            $res['title'] = $name;
+        }
+        return response_json(1, $res);
 
     }
 
