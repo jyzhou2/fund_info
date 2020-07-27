@@ -63,4 +63,13 @@ class FundController extends Controller
         return response_json(1,$info);
     }
 
+    /**
+     * 获得基金主题列表
+     */
+    public function getThemeList(){
+        $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
+        return response_json(1, $name_list);
+
+    }
+
 }
