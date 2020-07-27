@@ -70,7 +70,8 @@ class FundController extends Controller
         $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
         $res = [];
         foreach($name_list as $name){
-            $res[] =['title'=> $name];
+            $count = JiJinTheme::where('name',$name)->count();
+            $res[] =['title'=> $name,'label'=>$count];
         }
         return response_json(1, $res);
 
