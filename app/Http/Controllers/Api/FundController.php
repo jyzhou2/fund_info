@@ -28,50 +28,47 @@ class FundController extends Controller
     public function getCorrectFund()
     {
         $themes = request('theme');
-        if (!is_array($themes)) {
-            $themes = explode(',',$themes);
-        }
+
         $guimo = request('guimo');
-        $raw_jjdms = JiJinGusuan::select('jjdm')->get()->pluck('jjdm')->all();
-        $jjdms = [];
-        foreach ($themes as $theme) {
-            $cur_jjdm = JiJinTheme::where('name', 'like', '%' . $theme . '%')->select('jjdm')->get()->pluck('jjdm')->all();
-            if ($cur_jjdm) {
-                $jjdms = array_merge($jjdms, $cur_jjdm);
-            }
+
+
+        if (empty($themes) && empty($guimo)) {
+            return response_json(1, []);
         }
-        if(empty($themes) && empty($guimo)){
-            return response_json(1,[]);
-        }
+        $query = JiJinGusuan::join('jijininfo', 'jijininfo.jjdm', '=', 'jijingusuan.jjdm');
         // 获得基金列表
+
         if ($guimo) {
-            if($jjdms){
-                $jjdms = JiJinGusuan::where('guimo_number', '>=', $guimo)->whereIn('jjdm',$jjdms)->select('jjdm')->get()->pluck('jjdm')->all();
-            }
+            $guimo_jjdms = JiJinGusuan::where('guimo_number', '>=', $guimo)->select('jjdm')->get()->pluck('jjdm')->all();
+            $query->whereIn('jijingusuan.jjdm', $guimo_jjdms);
         }
-        if(empty($jjdms)){
-            $jjdms = $raw_jjdms;
+
+        if ($themes) {
+            $theme_jjdm = JiJinTheme::where('name', 'like', '%' . $themes . '%')->select('jjdm')->get()->pluck('jjdm')->all();
+            $query->whereIn('jijingusuan.jjdm', $theme_jjdm);
+
         }
-        $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')
-            ->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('recommand','desc')->get();
-        foreach ($info as $k=>$item){
-            $info[$k]->one_week_level = round($info[$k]->one_week_level,2);
-            $info[$k]->one_month_level = round($info[$k]->one_month_level,2);
-            $info[$k]->three_months_level = round($info[$k]->three_months_level,2);
-            $info[$k]->six_months_level = round($info[$k]->six_months_level,2);
+
+        $info = $query->orderBy('recommand', 'desc')->get();
+        foreach ($info as $k => $item) {
+            $info[$k]->one_week_level = round($info[$k]->one_week_level, 2);
+            $info[$k]->one_month_level = round($info[$k]->one_month_level, 2);
+            $info[$k]->three_months_level = round($info[$k]->three_months_level, 2);
+            $info[$k]->six_months_level = round($info[$k]->six_months_level, 2);
         }
-        return response_json(1,$info);
+        return response_json(1, $info);
     }
 
     /**
      * 获得基金主题列表
      */
-    public function getThemeList(){
+    public function getThemeList()
+    {
         $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
         $res = [];
-        foreach($name_list as $name){
-            $count = JiJinTheme::where('name',$name)->count();
-            $res[] =['title'=> $name,'label'=>$count];
+        foreach ($name_list as $name) {
+            $count = JiJinTheme::where('name', $name)->count();
+            $res[] = ['title' => $name, 'label' => $count];
         }
         return response_json(1, $res);
 
