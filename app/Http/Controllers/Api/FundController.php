@@ -53,7 +53,7 @@ class FundController extends Controller
             $jjdms = $raw_jjdms;
         }
         $info = JiJinGusuan::join('jijininfo','jijininfo.jjdm','=','jijingusuan.jjdm')
-            ->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('recommand','desc')->get();
+            ->whereIn('jijingusuan.jjdm',$jjdms)->orderBy('recommand','desc')->limit(100)->get();
         foreach ($info as $k=>$item){
             $info[$k]->one_week_level = round($info[$k]->one_week_level,2);
             $info[$k]->one_month_level = round($info[$k]->one_month_level,2);
@@ -67,7 +67,7 @@ class FundController extends Controller
      * 获得基金主题列表
      */
     public function getThemeList(){
-        $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->limit(100)->get()->pluck('name')->all();
+        $name_list = JiJinTheme::select(DB::Raw('distinct(name) as name'))->get()->pluck('name')->all();
         $res = [];
         foreach($name_list as $name){
             $res[] =['title'=> $name];
