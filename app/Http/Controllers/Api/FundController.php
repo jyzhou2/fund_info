@@ -55,6 +55,7 @@ class FundController extends Controller
             $info[$k]->one_month_level = round($info[$k]->one_month_level, 2);
             $info[$k]->three_months_level = round($info[$k]->three_months_level, 2);
             $info[$k]->six_months_level = round($info[$k]->six_months_level, 2);
+            $info[$k]->jijin_type = $item->jijin_type;
         }
         return response_json(1, $info);
     }
