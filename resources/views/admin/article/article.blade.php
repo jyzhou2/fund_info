@@ -118,7 +118,7 @@
                                     <td>@if($article['is_top'] == 1) 置顶 @else 不置顶 @endif</td>
                                     <td>@if($article['is_recommend'] == 1) 推荐 @else 不推荐 @endif</td>
                                     <td>
-                                        <a href="{{route('admin.article.article.edit').'?article_id=' [$article['article_id']]}}">编辑</a>
+                                        <a href="{{route('admin.article.article.edit').'?article_id='.$article['article_id']}}">编辑</a>
                                         | <a class="ajaxBtn" href="javascript:void(0);" uri="{{route('admin.article.article.delete', [$article['article_id']])}}" msg="是否删除该文章及相关评论？">删除</a>
                                     </td>
                                 </tr>
