@@ -104,8 +104,6 @@
 
                                 <div id="test-editormd">
                                     <textarea style="display:none;">{{$article->content or ''}}</textarea>
-
-
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">状态</label>
