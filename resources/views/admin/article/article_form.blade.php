@@ -203,7 +203,7 @@
                 width   : "90%",
                 height  : 640,
                 syncScrolling : "single",
-                path    : "../../../js/plugins/editor.md-master/lib"
+                path    : "../../../js/plugins/editor.md-master/lib/"
             });
 
             /*
