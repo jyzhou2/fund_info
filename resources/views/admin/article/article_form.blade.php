@@ -33,25 +33,25 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标题</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="title" value="{{$article->title or ''}}"/>
+                                    <input type="text" class="form-control" name="title" autocomplete="off" value="{{$article->title or ''}}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">副标题</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="sub_title" value="{{$article->sub_title or ''}}"/>
+                                    <input type="text" class="form-control" name="sub_title"  autocomplete="off" value="{{$article->sub_title or ''}}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章来源</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="source" value="{{$article->source or ''}}"/>
+                                    <input type="text" class="form-control" name="source"  autocomplete="off" value="{{$article->source or ''}}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">关键词</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="keywords" value="{{$article->keywords or ''}}" placeholder="多个词请用逗号分隔"/>
+                                    <input type="text" class="form-control" name="keywords"  autocomplete="off" value="{{$article->keywords or ''}}" placeholder="多个词请用逗号分隔"/>
                                 </div>
                             </div>
                             <div class="form-group">
