@@ -2,6 +2,8 @@
 
 @section('head')
     <link rel="stylesheet" href="{{cdn('js/plugins/webuploader/single.css')}}">
+    <link rel="stylesheet" href="{{cdn('js/plugins/editormd/editormd.min.css')}}">
+    <link rel="stylesheet" href="{{cdn('js/plugins/editormd/codemirror.min.css')}}">
 @endsection
 
 @section('bodyattr')class="gray-bg"@endsection
@@ -92,9 +94,45 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">内容</label>
-                                <div class="col-sm-10">
-                                    <textarea name="content" id="content">{{$article->content or ''}}</textarea>
-                                </div>
+
+
+                                <div id="test-editormd">
+                <textarea style="display:none;">[TOC]
+
+#### Disabled options
+
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
+
+#### Editor.md directory
+
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+</textarea>
+
+
+
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">状态</label>
@@ -157,38 +195,27 @@
 @endsection
 
 @section('script')
-    <script src="{{cdn('js/plugins/ueditor/ueditor.config.js')}}"></script>
-    <script src="{{cdn('js/plugins/ueditor/ueditor.all.min.js')}}"></script>
-    <script src="{{cdn('js/plugins/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
-            var ue = UE.getEditor('content');
+    <script src="{{cdn('js/plugins/editormd/editormd.min.js')}}"></script>
+    <script>
+        var testEditor;
 
-            ue.ready(function () {
-                ue.execCommand('serverparam', {
-                    '_token': '{{csrf_token()}}',
-                    'filetype': 'FT_ARTICLE_DESC',
-                    'itemid': '{{$article->article_id or 0}}'
-                });
+        $(function() {
+            testEditor = editormd("test-editormd", {
+                width   : "90%",
+                height  : 640,
+                syncScrolling : "single",
+                path    : "../lib/"
             });
-        });
-    </script>
-    <script src="{{cdn('js/plugins/webuploader/webuploader.nolog.min.js')}}"></script>
-    <script src="{{cdn('js/plugins/webuploader/webuploader_public.js')}}"></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
-            singleUpload({
-                _token: '{{csrf_token()}}',
-                type_key: 'FT_ARTICLE_IMG',
-                item_id: '{{$article->article_id or 0}}',
-                pick: 'filePicker',
-                boxid: 'imgupload',
-                file_path: 'default_img',
-                file_id: 'file_id'
+
+            /*
+            // or
+            testEditor = editormd({
+                id      : "test-editormd",
+                width   : "90%",
+                height  : 640,
+                path    : "../lib/"
             });
-            $('#imgupload').find('.img-div>span').click(function () {
-                sUploadDel($(this), 'default_img');
-            });
+            */
         });
     </script>
 @endsection
