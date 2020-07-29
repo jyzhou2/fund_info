@@ -11,7 +11,7 @@ Route::group([
 		// 添加文章分类
 		Route::get('/add/{cate_id?}', 'AcategoryController@add')->name('admin.article.acategory.add');
 		// 编辑文章分类
-		Route::get('/edit/{e_cate_id}', 'AcategoryController@edit')->name('admin.article.acategory.edit');
+		Route::get('/edit', 'AcategoryController@edit')->name('admin.article.acategory.edit');
 		// 删除文章分类
 		Route::get('/delete/{cate_id}', 'AcategoryController@delete')->name('admin.article.acategory.delete');
 		// 保存文章分类

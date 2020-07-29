@@ -102,8 +102,9 @@ class ArticleController extends BaseAdminController
 	 * @param int $article_id 文章id
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function edit($article_id)
+	public function edit()
 	{
+        $article_id = request('article_id');
 		$this->setTree();
 		// 取得分类数据
 		$article = Article::findOrFail($article_id);
