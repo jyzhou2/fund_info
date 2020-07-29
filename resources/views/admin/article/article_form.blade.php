@@ -2,8 +2,7 @@
 
 @section('head')
     <link rel="stylesheet" href="{{cdn('js/plugins/webuploader/single.css')}}">
-    <link rel="stylesheet" href="{{cdn('js/plugins/editormd/editormd.min.css')}}">
-    <link rel="stylesheet" href="{{cdn('js/plugins/editormd/codemirror.min.css')}}">
+    <link rel="stylesheet" href="{{cdn('js/plugins/editor.md-master/editormd.css')}}">
 @endsection
 
 @section('bodyattr')class="gray-bg"@endsection
@@ -195,7 +194,7 @@
 @endsection
 
 @section('script')
-    <script src="{{cdn('js/plugins/editormd/editormd.min.js')}}"></script>
+    <script src="{{cdn('js/plugins/editor.md-master/editormd.js')}}"></script>
     <script>
         var testEditor;
 
