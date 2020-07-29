@@ -144,7 +144,7 @@ class ArticleController extends BaseAdminController
 		$this->validate(request(), [
 			'title' => 'required|unique:article,title,' . request('article_id', 0) . ',article_id',
 			'cate_id' => 'required',
-			'content' => 'required'
+
 		]);
 
 		// 保存数据
