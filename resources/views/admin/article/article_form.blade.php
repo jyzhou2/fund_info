@@ -200,7 +200,7 @@
 
         $(function() {
             testEditor = editormd("test-editormd", {
-                width   : "90%",
+                width   : "width: 81%",
                 height  : 640,
                 syncScrolling : "single",
                 path    : "../../../js/plugins/editor.md-master/lib/"
