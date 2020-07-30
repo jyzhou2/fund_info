@@ -47,6 +47,7 @@ Route::group($route_group, function () {
 
 	Route::get('/fund_list', 'FundController@getCorrectFund');
 	Route::get('/getThemeList', 'FundController@getThemeList');
+    Route::get('/articleList', 'ArticleController@articleList');
 
 	// 需要登录验证的路由
 	Route::group([
