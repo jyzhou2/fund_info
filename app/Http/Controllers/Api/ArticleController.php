@@ -25,7 +25,7 @@ class ArticleController extends Controller
 
     public function articleList(){
         $type = \request('cate_id');
-        $list = Article::where('cate_id', $type)->select('article_id','title','sub_title','default_img')->get();
+        $list = Article::where('cate_id', $type)->select('article_id','title','sub_title','default_img','updated_at')->get();
         return response_json(1, $list);
     }
 }
