@@ -28,4 +28,10 @@ class ArticleController extends Controller
         $list = Article::where('cate_id', $type)->select('article_id','title','sub_title','default_img','updated_at')->get();
         return response_json(1, $list);
     }
+
+    public function articleDetail(){
+        $article_id = \request('article_id');
+        $article = Article::find($article_id);
+        return response_json(1, $article);
+    }
 }
