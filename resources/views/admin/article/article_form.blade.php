@@ -188,11 +188,5 @@
     </script>
 
 
-    brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
-
-    作者：一杉风雨
-    链接：https://www.jianshu.com/p/a736ea64e50e
-    来源：简书
-    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 @endsection
