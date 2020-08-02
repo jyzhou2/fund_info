@@ -172,7 +172,7 @@
     <script src="{{cdn('js/plugins/mavonEditor-master/dist/mavon-editor.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        Vue.use(window['mavon-editor'])
+        Vue.use(window.MavonEditor)
         new Vue({
             'el': '#main',
             data:{
