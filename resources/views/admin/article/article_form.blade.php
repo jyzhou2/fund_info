@@ -1,8 +1,9 @@
 @extends('layouts.public')
 
 @section('head')
+    <link href="{{cdn('js/plugins/mavonEditor-master/css/index.css')}}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{cdn('js/plugins/webuploader/single.css')}}">
-    <link rel="stylesheet" href="{{cdn('js/plugins/editor.md-master/css/editormd.css')}}">
 @endsection
 
 @section('bodyattr')class="gray-bg"@endsection
@@ -99,8 +100,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">内容</label>
 
+                                <label class="col-sm-2 control-label">内容</label>
+                                <div id="main">
+                                </div>
 
                                 <div id="test-editormd">
                                     <textarea style="display:none;">{{$article->content or ''}}</textarea>
@@ -166,18 +169,22 @@
 @endsection
 
 @section('script')
-    <script src="{{cdn('js/plugins/editor.md-master/editormd.js')}}"></script>
+    <script src="{{cdn('js/plugins/mavonEditor-master/dist/mavon-editor.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        var testEditor;
-
-        $(function () {
-            testEditor = editormd("test-editormd", {
-                width: "81%",
-                height: 640,
-                syncScrolling: "single",
-                path: "../../../js/plugins/editor.md-master/lib/"
-            });
-
-        });
+        Vue.use(window['mavon-editor'])
+        new Vue({
+            'el': '#main',
+            data:{
+                value: "帅东"
+            },
+            template:'<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"></mavon-editor>',
+            methods: {
+                $imgAdd: function (pos, file) {
+                    //在这里上传图片
+                }
+            }
+        })
     </script>
+
 @endsection
