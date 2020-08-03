@@ -159,7 +159,7 @@ class ArticleController extends BaseAdminController
 		$article->sub_title = request('sub_title');
 		$article->des = request('des');
 		//$article->content = request('content');
-		$article->content = request('test-editormd-markdown-doc');
+		$article->content = request('content');
 		$article->source = request('source');
 		// 处理关键词
 		$article->keywords = str_replace([
