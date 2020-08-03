@@ -186,9 +186,7 @@
                 },
                 updateDoc(markdown, html) {
                     // 此时会自动将 markdown 和 html 传递到这个方法中
-                    console.log("markdown内容: " + markdown);
-                    document.getElementById('content').setAttribute("value","测试title");
-                    console.log("html内容:" + markdown);
+                    document.getElementById('content').setAttribute("value",markdown);
                 }
 
             }
