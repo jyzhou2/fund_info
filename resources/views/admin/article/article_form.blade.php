@@ -177,7 +177,7 @@
         new Vue({
             'el': '#main',
             data:{
-                value: " {!! $article->content  !!}"
+                value: " {!! $article->content or '' !!}"
             },
             template:'<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"  @change="updateDoc"></mavon-editor>',
             methods: {
