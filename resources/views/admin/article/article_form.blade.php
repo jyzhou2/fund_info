@@ -177,7 +177,7 @@
         new Vue({
             'el': '#main',
             data:{
-                value:  "{!! $article->content or '' !!}"
+                value:  ""
             },
             template:'<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"  @change="updateDoc"></mavon-editor>',
             methods: {
@@ -188,7 +188,9 @@
                     // 此时会自动将 markdown 和 html 传递到这个方法中
                     document.getElementById('content').setAttribute("value",html);
                 }
-
+            },
+            created(){
+                this.value = "{!! $article->content or '' !!}"
             }
         })
     </script>
