@@ -189,8 +189,12 @@
                     document.getElementById('content').setAttribute("value",html);
                 }
             },
+            mount(){
+                this.$refs.md.value="{!! $article->content or '' !!} "
+               // window.MavonEditor.value =
+            },
             created(){
-                window.MavonEditor.value = "{!! $article->content or '' !!} "
+
             }
         })
     </script>
