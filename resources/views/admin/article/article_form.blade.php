@@ -190,7 +190,7 @@
                 }
             },
             created(){
-                window.MavonEditor.render("{!! $article->content or '' !!} ")
+                window.MavonEditor.value = "{!! $article->content or '' !!} "
             }
         })
     </script>
