@@ -174,6 +174,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         Vue.use(window.MavonEditor)
+        let self
         new Vue({
             'el': '#main',
             data:{
@@ -194,7 +195,7 @@
                // window.MavonEditor.value =
             },
             created(){
-
+self = this
             }
         })
     </script>
