@@ -190,7 +190,7 @@
                 }
             },
             created(){
-                this.$refs.md.render("{{$article->content}}  or '' ")
+                window.MavonEditor.render("{{$article->content}}  or '' ")
             }
         })
     </script>
