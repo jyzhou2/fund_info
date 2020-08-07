@@ -191,7 +191,7 @@
                 }
             },
             mount(){
-                self.$refs.md.value="{!! $article->content or '' !!} "
+                self.$refs.md.d_value="{!! $article->content or '' !!} "
                // window.MavonEditor.value =
             },
             created(){
