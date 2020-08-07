@@ -190,13 +190,14 @@
                     document.getElementById('content').setAttribute("value", markdown);
                 }
             },
-            mount() {
+            mounted() {
 
                 // window.MavonEditor.value =
+                self.$refs.md.d_value = "{!! $article->content or '' !!} "
             },
             created() {
                 self = this
-                self.$refs.md.d_value = "{!! $article->content or '' !!} "
+
             }
         })
     </script>
