@@ -190,7 +190,7 @@
                 }
             },
             created(){
-                this.md.render("{{$article->content}}  or '' ")
+                this.$refs.md.render("{{$article->content}}  or '' ")
             }
         })
     </script>
