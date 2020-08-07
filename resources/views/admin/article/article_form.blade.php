@@ -193,8 +193,8 @@
             mounted() {
 
                 // window.MavonEditor.value =
-              //  self.$refs.md.d_value = "{!! $article->content or '' !!} "
-                self.$refs.md.d_value = "{{ $article->content or '' }}  "
+                self.$refs.md.d_value = "{!! $article->content or '' !!} "
+              //  self.$refs.md.d_value = "{{ $article->content or '' }}  "
             },
             created() {
                 self = this
