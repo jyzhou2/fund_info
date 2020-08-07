@@ -190,7 +190,7 @@
                 }
             },
             created(){
-                this.value = "{!! $article->content or '' !!}"
+                this.md.render("{!! $article->content or '' !!}")
             }
         })
     </script>
