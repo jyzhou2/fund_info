@@ -177,25 +177,26 @@
         let self
         new Vue({
             'el': '#main',
-            data:{
-                value:  ""
+            data: {
+                value: ""
             },
-            template:'<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"  @change="updateDoc"></mavon-editor>',
+            template: '<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"  @change="updateDoc"></mavon-editor>',
             methods: {
                 $imgAdd: function (pos, file) {
                     //在这里上传图片
                 },
                 updateDoc(markdown, html) {
                     // 此时会自动将 markdown 和 html 传递到这个方法中
-                    document.getElementById('content').setAttribute("value",markdown);
+                    document.getElementById('content').setAttribute("value", markdown);
                 }
             },
-            mount(){
-                self.$refs.md.d_value="{!! $article->content or '' !!} "
-               // window.MavonEditor.value =
+            mount() {
+
+                // window.MavonEditor.value =
             },
-            created(){
-self = this
+            created() {
+                self = this
+                self.$refs.md.d_value = "{!! $article->content or '' !!} "
             }
         })
     </script>
