@@ -30,7 +30,7 @@ Route::group([
 		// 删除文章
 		Route::get('/delete/{article_id?}', 'ArticleController@delete')->name('admin.article.article.delete');
 		// 保存文章
-		Route::post('/save', 'ArticleController@save')->name('admin.article.article.save');
+		Route::get('/save', 'ArticleController@save')->name('admin.article.article.save');
 		// 文章批量操作
 		Route::get('/batch/{field}/{value}/{ids?}', 'ArticleController@batch')->name('admin.article.article.batch');
 	});

@@ -30,7 +30,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <form action="{{route('admin.article.article.save')}}" method="post"
+                        <form action="{{route('admin.article.article.save')}}" method="get"
                               class="form-horizontal ajaxForm" id="form_self">
                             <input type="hidden" name="article_id" value="{{$article->article_id or 0}}"/>
                             <div class="form-group">
@@ -114,6 +114,7 @@
     </textarea>
                                 </div>
 
+                                <input name="_token" conte nt="{{ csrf_token() }}"/>
 
 
 
