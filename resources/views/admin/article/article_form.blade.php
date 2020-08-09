@@ -31,7 +31,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <form action="{{route('admin.article.article.save')}}" method="post"
-                              class="form-horizontal ajaxForm">
+                              class="form-horizontal ajaxForm" id="form_self">
                             <input type="hidden" name="article_id" value="{{$article->article_id or 0}}"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标题</label>
@@ -120,7 +120,6 @@
 
 
 
-
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">状态</label>
                                     <div class="col-sm-10">
@@ -169,7 +168,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary" type="submit">保存</button>
+                                        <button class="btn btn-primary"  type="button" onclick="do_submit()">保存</button>
                                         <button class="btn btn-white" type="button" id="backBtn">返回</button>
                                     </div>
                                 </div>
@@ -187,13 +186,19 @@
     <script src="{{cdn('js/plugins/editor.md-master/editormd.js')}}"></script>
 
     <script type="text/javascript">
+       var editor = null;
         $(function() {
-            var editor = editormd("test-editor", {
+            editor = editormd("test-editor", {
                 // width  : "100%",
                 // height : "100%",
                 path   : "{{cdn('js/plugins/editor.md-master/lib/')}}/"
             });
         });
+        function do_submit() {
+            content = editor.getMarkdown()
+            $('#content').val(content)
+            $('#form_self').submit()
+        }
     </script>
 
 
