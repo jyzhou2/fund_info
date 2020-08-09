@@ -191,7 +191,7 @@
             var editor = editormd("test-editor", {
                 // width  : "100%",
                 // height : "100%",
-                path   : "{{cdn('js/plugins/editor.md-master/lib/')}}"
+                path   : "js/plugins/editor.md-master/lib/"
             });
         });
     </script>
