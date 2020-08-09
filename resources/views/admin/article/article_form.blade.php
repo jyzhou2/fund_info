@@ -2,7 +2,6 @@
 
 @section('head')
     <link rel="stylesheet" href="{{cdn('js/plugins/webuploader/single.css')}}">
-    <link rel="stylesheet" href="editormd/css/editormd.css" />
 
     <link rel="stylesheet" href="{{cdn('js/plugins/editor.md-master/css/editormd.css')}}">
 @endsection
