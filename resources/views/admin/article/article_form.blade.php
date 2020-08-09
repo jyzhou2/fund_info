@@ -110,9 +110,7 @@
 
 
                                 <div id="test-editor">
-    <textarea style="display:none;">### 关于 Editor.md
-
-**Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。
+    <textarea style="display:none;">{!! $article->content or '' !!}
     </textarea>
                                 </div>
 
