@@ -1,9 +1,10 @@
 @extends('layouts.public')
 
 @section('head')
-    <link href="{{cdn('js/plugins/mavonEditor-master/dist/css/index.css')}}" rel="stylesheet">
-
     <link rel="stylesheet" href="{{cdn('js/plugins/webuploader/single.css')}}">
+    <link rel="stylesheet" href="editormd/css/editormd.css" />
+
+    <link rel="stylesheet" href="{{cdn('js/plugins/editor.md-master/css/editormd.css')}}">
 @endsection
 
 @section('bodyattr')class="gray-bg"@endsection
@@ -105,9 +106,13 @@
                                 <div id="main">
                                 </div>
 
-                                <div id="test-editormd">
-                                    <textarea style="display:none;">{{$article->content or ''}}</textarea>
+                                <div id="test-editor">
+    <textarea style="display:none;">### 关于 Editor.md
+
+**Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。
+    </textarea>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">状态</label>
                                     <div class="col-sm-10">
@@ -170,37 +175,12 @@
 @endsection
 
 @section('script')
-    <script src="{{cdn('js/plugins/mavonEditor-master/dist/mavon-editor.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{cdn('js/plugins/editor.md-master/editormd.js')}}"></script>
+
     <script>
-        Vue.use(window.MavonEditor)
-        let self
-        new Vue({
-            'el': '#main',
-            data: {
-                value: '{!! $article->content or '' !!}'
-            },
-            template: '<mavon-editor v-model="value" ref=md @imgAdd="$imgAdd"  @change="updateDoc"></mavon-editor>',
-            methods: {
-                $imgAdd: function (pos, file) {
-                    //在这里上传图片
-                },
-                updateDoc(markdown, html) {
-                    // 此时会自动将 markdown 和 html 传递到这个方法中
-                    document.getElementById('content').setAttribute("value", markdown);
-                }
-            },
-            mounted() {
-                {{--self.$refs.md.d_value = {!! $article->content or '' !!}--}}
 
-            },
-            created() {
-                self = this
-
-            }
-        })
-    </script>
-
+   </script>
 
 
 @endsection
