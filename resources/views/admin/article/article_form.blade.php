@@ -114,7 +114,6 @@
     </textarea>
                                 </div>
 
-                                <input name="_token" conte nt="{{ csrf_token() }}"/>
 
 
 
