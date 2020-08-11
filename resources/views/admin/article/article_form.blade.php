@@ -106,16 +106,9 @@
                                 </div>
 
 
-
-
-
                                 <div id="test-editor">
-    <textarea style="display:none;">{!! $article->content or '' !!}
-    </textarea>
+                                        <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
                                 </div>
-
-
-
 
 
                                 <div class="form-group">
@@ -166,7 +159,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary"  type="button" onclick="do_submit()">保存</button>
+                                        <button class="btn btn-primary" type="button" onclick="do_submit()">保存</button>
                                         <button class="btn btn-white" type="button" id="backBtn">返回</button>
                                     </div>
                                 </div>
@@ -184,14 +177,15 @@
     <script src="{{cdn('js/plugins/editor.md-master/editormd.js')}}"></script>
 
     <script type="text/javascript">
-       var editor = null;
-        $(function() {
+        var editor = null;
+        $(function () {
             editor = editormd("test-editor", {
                 // width  : "100%",
                 // height : "100%",
-                path   : "{{cdn('js/plugins/editor.md-master/lib/')}}/"
+                path: "{{cdn('js/plugins/editor.md-master/lib/')}}/"
             });
         });
+
         function do_submit() {
             content = editor.getMarkdown()
             $('#content').val(content)
