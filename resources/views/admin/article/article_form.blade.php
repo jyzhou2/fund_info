@@ -181,7 +181,7 @@
         $(function () {
             editor = editormd("test-editor", {
                 // width  : "100%",
-                 height : "960px",
+                 height : "600px",
                 path: "{{cdn('js/plugins/editor.md-master/lib/')}}/",
                 watch:false
             });
