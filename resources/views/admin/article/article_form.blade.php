@@ -102,8 +102,12 @@
                             <div class="form-group">
 
                                 <label class="col-sm-2 control-label">内容</label>
-                                <div class="col-sm-6">
-                                    <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
+                                <div id="main">
+                                </div>
+
+
+                                <div id="test-editor">
+                                        <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
                                 </div>
 
 
@@ -178,11 +182,7 @@
             editor = editormd("test-editor", {
                 // width  : "100%",
                 // height : "100%",
-                path: "{{cdn('js/plugins/editor.md-master/lib/')}}/",
-                toolbarIcons: function () {  //自定义工具栏，后面有详细介绍
-                    return editormd.toolbarModes['simple']; // full, simple, mini
-                },
-                watch:false
+                path: "{{cdn('js/plugins/editor.md-master/lib/')}}/"
             });
         });
 
