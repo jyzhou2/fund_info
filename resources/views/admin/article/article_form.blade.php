@@ -102,14 +102,13 @@
                             <div class="form-group">
 
                                 <label class="col-sm-2 control-label">内容</label>
-                                <div id="main">
-                                </div>
 
+                                <div class="col-sm-8">
 
-                                <div id="test-editor">
+                                    <div id="test-editor">
                                         <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
+                                    </div>
                                 </div>
-
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">状态</label>
