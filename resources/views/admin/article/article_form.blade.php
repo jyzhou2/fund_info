@@ -102,12 +102,11 @@
                             <div class="form-group">
 
                                 <label class="col-sm-2 control-label">内容</label>
-                                <div id="main">
-                                </div>
 
-
-                                <div id="test-editor">
+                                <div class="col-sm-6">
+                                    <div id="test-editor">
                                         <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
+                                    </div>
                                 </div>
 
 
