@@ -104,64 +104,65 @@
                                 <label class="col-sm-2 control-label">内容</label>
 
                                 <div class="col-sm-8">
-
                                     <div id="test-editor">
                                         <textarea style="display:none;">{!! $article->content or '' !!}</textarea>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">状态</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group m-t-xs-2">
-                                            <input type="radio" name="is_show" value="1"
-                                                   @if ((isset($article->is_show) ? $article->is_show : '') != '0') checked="checked"@endif/>显示
-                                            <input type="radio" name="is_show" value="0"
-                                                   @if ((isset($article->is_show) ? $article->is_show : '') == '0') checked="checked"@endif/>不显示
-                                        </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">状态</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group m-t-xs-2">
+                                        <input type="radio" name="is_show" value="1"
+                                               @if ((isset($article->is_show) ? $article->is_show : '') != '0') checked="checked"@endif/>显示
+                                        <input type="radio" name="is_show" value="0"
+                                               @if ((isset($article->is_show) ? $article->is_show : '') == '0') checked="checked"@endif/>不显示
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">评论</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group m-t-xs-2">
-                                            <input type="radio" name="is_comment" value="1"
-                                                   @if ((isset($article->is_comment) ? $article->is_comment : '') != '0') checked="checked"@endif/>允许
-                                            <input type="radio" name="is_comment" value="0"
-                                                   @if ((isset($article->is_comment) ? $article->is_comment : '') == '0') checked="checked"@endif/>不允许
-                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">评论</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group m-t-xs-2">
+                                        <input type="radio" name="is_comment" value="1"
+                                               @if ((isset($article->is_comment) ? $article->is_comment : '') != '0') checked="checked"@endif/>允许
+                                        <input type="radio" name="is_comment" value="0"
+                                               @if ((isset($article->is_comment) ? $article->is_comment : '') == '0') checked="checked"@endif/>不允许
                                     </div>
                                 </div>
-                                <input type='hidden' name='content' id='content'/>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">置顶</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group m-t-xs-2">
-                                            <input type="radio" name="is_top" value="1"
-                                                   @if ((isset($article->is_top) ? $article->is_top : '') == '1') checked="checked"@endif/>置顶
-                                            <input type="radio" name="is_top" value="0"
-                                                   @if ((isset($article->is_top) ? $article->is_top : '') != '1') checked="checked"@endif/>不置顶
-                                        </div>
+                            </div>
+                            <input type='hidden' name='content' id='content'/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">置顶</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group m-t-xs-2">
+                                        <input type="radio" name="is_top" value="1"
+                                               @if ((isset($article->is_top) ? $article->is_top : '') == '1') checked="checked"@endif/>置顶
+                                        <input type="radio" name="is_top" value="0"
+                                               @if ((isset($article->is_top) ? $article->is_top : '') != '1') checked="checked"@endif/>不置顶
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">推荐</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group m-t-xs-2">
-                                            <input type="radio" name="is_recommend" value="1"
-                                                   @if ((isset($article->is_recommend) ? $article->is_recommend : '') == '1') checked="checked"@endif/>推荐
-                                            <input type="radio" name="is_recommend" value="0"
-                                                   @if ((isset($article->is_recommend) ? $article->is_recommend : '') != '1') checked="checked"@endif/>不推荐
-                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">推荐</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group m-t-xs-2">
+                                        <input type="radio" name="is_recommend" value="1"
+                                               @if ((isset($article->is_recommend) ? $article->is_recommend : '') == '1') checked="checked"@endif/>推荐
+                                        <input type="radio" name="is_recommend" value="0"
+                                               @if ((isset($article->is_recommend) ? $article->is_recommend : '') != '1') checked="checked"@endif/>不推荐
                                     </div>
                                 </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="form-group">
-                                    <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary" type="button" onclick="do_submit()">保存</button>
-                                        <button class="btn btn-white" type="button" id="backBtn">返回</button>
-                                    </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="button" onclick="do_submit()">保存</button>
+                                    <button class="btn btn-white" type="button" id="backBtn">返回</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -180,8 +181,9 @@
         $(function () {
             editor = editormd("test-editor", {
                 // width  : "100%",
-                // height : "100%",
-                path: "{{cdn('js/plugins/editor.md-master/lib/')}}/"
+                 height : "600px",
+                path: "{{cdn('js/plugins/editor.md-master/lib/')}}/",
+                watch:false
             });
         });
 
