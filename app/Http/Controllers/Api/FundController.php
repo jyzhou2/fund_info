@@ -31,7 +31,7 @@ class FundController extends Controller
 
         $guimo = request('guimo');
 
-
+        $type = request('type');
         if (empty($themes) && empty($guimo)) {
             return response_json(1, []);
         }
@@ -40,13 +40,26 @@ class FundController extends Controller
 
         if ($guimo) {
             $guimo_jjdms = JiJinGusuan::where('guimo_number', '>=', $guimo)->select('jjdm')->get()->pluck('jjdm')->all();
-            $query->whereIn('jijingusuan.jjdm', $guimo_jjdms);
+            if ($guimo_jjdms) {
+                $query->whereIn('jijingusuan.jjdm', $guimo_jjdms);
+
+
+            }
         }
 
         if ($themes) {
             $theme_jjdm = JiJinTheme::where('name', 'like', '%' . $themes . '%')->select('jjdm')->get()->pluck('jjdm')->all();
-            $query->whereIn('jijingusuan.jjdm', $theme_jjdm);
+            if ($theme_jjdm) {
+                $query->whereIn('jijingusuan.jjdm', $theme_jjdm);
 
+            }
+        }
+        if ($type) {
+            $type_jjdm = JiJinTheme::where('jijin_type', 'like', '%' . $type . '%')->select('jjdm')->get()->pluck('jjdm')->all();
+            if ($type_jjdm) {
+                $query->whereIn('jijingusuan.jjdm', $theme_jjdm);
+
+            }
         }
 
         $info = $query->orderBy('recommand', 'desc')->get();
@@ -69,10 +82,9 @@ class FundController extends Controller
         $res = [];
         foreach ($name_list as $name) {
             $jjdms = JiJinTheme::where('name', $name)->select('jjdm')->get()->pluck('jjdm')->all();
-            if(empty($jjdms)){
+            if (empty($jjdms)) {
                 $res[] = ['title' => $name, 'label' => 0];
-            }
-            else{
+            } else {
                 $res[] = ['title' => $name, 'label' => JiJinGusuan::whereIn('jjdm', $jjdms)->count()];
 
             }
