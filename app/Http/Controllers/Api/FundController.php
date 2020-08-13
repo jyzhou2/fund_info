@@ -55,9 +55,9 @@ class FundController extends Controller
             }
         }
         if ($type) {
-            $type_jjdm = JiJinTheme::where('jijin_type', 'like', '%' . $type . '%')->select('jjdm')->get()->pluck('jjdm')->all();
+            $type_jjdm = JiJinInfo::where('jijin_type', 'like', '%' . $type . '%')->select('jjdm')->get()->pluck('jjdm')->all();
             if ($type_jjdm) {
-                $query->whereIn('jijingusuan.jjdm', $theme_jjdm);
+                $query->whereIn('jijingusuan.jjdm', $type_jjdm);
 
             }
         }
