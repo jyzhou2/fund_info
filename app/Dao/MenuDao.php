@@ -91,7 +91,21 @@ class MenuDao extends BaseMdl
 				'priv' => 'info',
 				'icon' => 'glyphicon glyphicon-usd',
 				'order_num' => 11,
-                'url' => route('admin.info.index'),
+
+                'nodes' => [
+                    [
+                        'text' => '基金推荐',
+                        'url' => route('admin.info.index'),
+                        'priv' => 'admin-article-article',
+                        'order_num' => 10,
+                    ],
+                    [
+                        'text' => '基金列表',
+                        'url' => route('admin.info.fundList'),
+                        'priv' => 'admin-article-acategory',
+                        'order_num' => 10,
+                    ]
+                ]
 
 			],
 
