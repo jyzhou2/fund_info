@@ -49,6 +49,7 @@
                                 <th>基金类型</th>
                                 <th>基金规模</th>
                                 <th>创建日期</th>
+                                <th>状态</th>
                                 <th>操作</th>
 
                             </tr>
@@ -66,6 +67,13 @@
                                     <td>{{$user->jijin_type}}</td>
                                     <td>{{$user->jijin_guimo}}</td>
                                     <td>{{$user->jijin_create_day}}</td>
+                                    <td>
+                                        @if($user->status == 1)
+                                            正常
+                                        @else
+                                            非正常
+                                        @endif
+                                    </td>
                                     <td>
                                         <a class="ajaxBtn" href="javascript:void(0);" uri="{{route('admin.info.fundSet',[$user->jjdm])}}" msg="是否删除该基金状态？">设置</a>
                                     </td>
