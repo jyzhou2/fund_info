@@ -25,6 +25,8 @@
                                        value="{{request('jjdm')}}">
                                 <input type="text" name="name" placeholder="基金名称" class="form-control"
                                        value="{{request('name')}}">
+                                <input type="text" name="status" placeholder="基金状态" class="form-control"
+                                       value="{{request('name')}}">
                             </div>
 
                             <button type="submit" class="btn btn-primary">搜索</button>

@@ -87,11 +87,15 @@ class InfoController extends BaseAdminController
         $query = JiJinInfo::query();
         $jjdm = request('jjdm');
         $jjtype = request('name');
+        $status = request('status');
         if($jjdm){
             $query->where('jjdm',$jjdm);
         }
         if($jjtype){
             $query->where('name','like','%'.$jjtype.'%');
+        }
+        if($status){
+            $query->where('status', $status);
         }
         // 取得列表
         $users = $query->select([
