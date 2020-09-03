@@ -40,6 +40,7 @@ Route::group([
         // 文件列表
         Route::get('/', 'InfoController@index')->name('admin.info.index');
         Route::get('/fundList', 'InfoController@fundList')->name('admin.info.fundList');
+        Route::get('/fundEdit', 'InfoController@fundEdit')->name('admin.info.fundEdit');
 
     });
 

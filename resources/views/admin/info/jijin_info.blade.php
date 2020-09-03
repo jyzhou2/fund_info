@@ -49,11 +49,7 @@
                                 <th>基金类型</th>
                                 <th>基金规模</th>
                                 <th>创建日期</th>
-                                <th>月段位</th>
-                                <th>三月段位</th>
-                                <th>半年段位</th>
-                                <th>最后更新时间</th>
-                                <th>创建日期</th>
+                                <th>操作</th>
 
                             </tr>
                             </thead>
@@ -70,6 +66,7 @@
                                     <td>{{$user->jijin_type}}</td>
                                     <td>{{$user->jijin_guimo}}</td>
                                     <td>{{$user->jijin_create_day}}</td>
+                                    <td><a href="{{route('admin.info.fundEdit')."?jjdm=".$user->jjdm}}">编辑</a></td>
 
                                 </tr>
                             @endforeach
