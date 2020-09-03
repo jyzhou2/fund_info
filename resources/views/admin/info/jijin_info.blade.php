@@ -66,7 +66,9 @@
                                     <td>{{$user->jijin_type}}</td>
                                     <td>{{$user->jijin_guimo}}</td>
                                     <td>{{$user->jijin_create_day}}</td>
-                                    <td><a href="{{route('admin.info.fundEdit')."?jjdm=".$user->jjdm}}">编辑</a></td>
+                                    <td>
+                                        <a class="ajaxBtn" href="javascript:void(0);" uri="{{route('admin.info.fundSet',[$user->jjdm])}}" msg="是否删除该基金状态？">设置</a>
+                                    </td>
 
                                 </tr>
                             @endforeach

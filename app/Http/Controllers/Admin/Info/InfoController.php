@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Info;
 
+use App\Exceptions\ApiErrorException;
 use App\Http\Controllers\Admin\BaseAdminController;
 use App\Models\JiJinGusuan;
 use App\Models\JiJinInfo;
@@ -106,5 +107,23 @@ class InfoController extends BaseAdminController
         return view('admin.info.jijin_info', [
             'info' => $users,
         ]);
+    }
+
+
+    /**
+     * 修改基金状态
+     */
+    public function fundSet($jjdm){
+        $modal = JiJinInfo::where('jjdm', $jjdm)->first();
+        if(empty($modal)){
+            throw new ApiErrorException('未找到基金信息');
+        }
+        if($modal->status === 1){
+            $modal->status = 2;
+        }else{
+            $modal->status = 1;
+        }
+        $modal->save();
+        return $this->success(route('admin.info.fundList'));
     }
 }
