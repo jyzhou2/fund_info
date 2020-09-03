@@ -84,6 +84,14 @@ class InfoController extends BaseAdminController
     public function fundList()
     {
         $query = JiJinInfo::query();
+        $jjdm = request('jjdm');
+        $jjtype = request('name');
+        if($jjdm){
+            $query->where('jjdm',$jjdm);
+        }
+        if($jjtype){
+            $query->where('jijin_type','like','%'.$jjtype.'%');
+        }
         // 取得列表
         $users = $query->select([
             'jjdm',
