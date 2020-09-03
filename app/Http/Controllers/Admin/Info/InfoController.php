@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Info;
 
 use App\Http\Controllers\Admin\BaseAdminController;
 use App\Models\JiJinGusuan;
+use App\Models\JiJinInfo;
 use App\Models\UploadedFile;
 use App\Models\Users;
 use App\Models\UsersBind;
@@ -26,7 +27,7 @@ class InfoController extends BaseAdminController
 
 
     /**
-     * 用户列表
+     * 推荐基金列表
      *
      * @author lxp 20170111
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -70,6 +71,31 @@ class InfoController extends BaseAdminController
         $users->appends(app('request')->all());
 
         return view('admin.info.info', [
+            'info' => $users,
+        ]);
+    }
+
+    /**
+     * 基金信息列表
+     *
+     * @author lxp 20170111
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function fundList()
+    {
+        $query = JiJinInfo::query();
+        // 取得列表
+        $users = $query->select([
+            'jjdm',
+            'name',
+            'jijin_type',
+            'jijin_guimo',
+            'jijin_create_day'
+        ])->paginate(parent::$perpage);
+        // 将查询参数拼接到分页链接中
+        $users->appends(app('request')->all());
+
+        return view('admin.info.jijin_info', [
             'info' => $users,
         ]);
     }
