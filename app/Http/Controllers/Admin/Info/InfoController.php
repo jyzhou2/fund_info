@@ -99,7 +99,8 @@ class InfoController extends BaseAdminController
             'name',
             'jijin_type',
             'jijin_guimo',
-            'jijin_create_day'
+            'jijin_create_day',
+            'status'
         ])->paginate(parent::$perpage);
         // 将查询参数拼接到分页链接中
         $users->appends(app('request')->all());
