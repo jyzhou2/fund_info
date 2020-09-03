@@ -90,7 +90,7 @@ class InfoController extends BaseAdminController
             $query->where('jjdm',$jjdm);
         }
         if($jjtype){
-            $query->where('jijin_type','like','%'.$jjtype.'%');
+            $query->where('name','like','%'.$jjtype.'%');
         }
         // 取得列表
         $users = $query->select([
