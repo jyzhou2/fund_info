@@ -30,8 +30,7 @@
                                     <option value="1" @if(request('status') == 1) selected @endif> 正常</option>
                                     <option value="2" @if(request('status') == 2) selected @endif> 非正常</option>
                                 </select>
-                                <input type="text" name="status" placeholder="基金状态" class="form-control"
-                                       value="{{request('status')}}">
+                                
                             </div>
 
                             <button type="submit" class="btn btn-primary">搜索</button>
