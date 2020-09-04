@@ -25,6 +25,11 @@
                                        value="{{request('jjdm')}}">
                                 <input type="text" name="name" placeholder="基金名称" class="form-control"
                                        value="{{request('name')}}">
+                                <select class="form-control" name="status">
+                                    <option value="0" > 全部</option>
+                                    <option value="1" @if(request('status') == 1) selected @endif> 正常</option>
+                                    <option value="2" @if(request('status') == 2) selected @endif> 非正常</option>
+                                </select>
                                 <input type="text" name="status" placeholder="基金状态" class="form-control"
                                        value="{{request('status')}}">
                             </div>
